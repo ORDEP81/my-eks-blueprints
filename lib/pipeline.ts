@@ -18,9 +18,9 @@ export default class PipelineConstruct extends Construct {
   
     blueprints.CodePipelineStack.builder()
       .name("eks-blueprints-workshop-pipeline")
-      .owner("ordep81")
+      .owner("ORDEP81")
       .repository({
-          repoUrl: 'my-eks-blueprints',
+          repoUrl: 'https://github.com/ORDEP81/my-eks-blueprints',
           credentialsSecretName: 'github-token',
           targetRevision: 'main'
       })
