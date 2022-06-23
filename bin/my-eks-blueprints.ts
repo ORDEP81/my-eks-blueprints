@@ -10,4 +10,4 @@ const region = process.env.CDK_DEFAULT_REGION;
 const env = { account, region }
 
 new ClusterConstruct(app, 'cluster', { env });
-new PipelineConstruct(app, 'pipeline', { env:env });
+new PipelineConstruct(app, 'pipeline', { env });
