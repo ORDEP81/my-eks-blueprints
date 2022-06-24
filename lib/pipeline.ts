@@ -3,7 +3,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as blueprints from '@aws-quickstart/eks-blueprints';
 
-import { TeamPlatform, TeamApplication } from '../teams'; // HERE WE IMPORT TEAMS
+import { TeamPlatform, TeamApplication } from '../teams';
 
 export default class PipelineConstruct extends Construct {
   constructor(scope: Construct, id: string, props?: cdk.StackProps){
@@ -15,7 +15,7 @@ export default class PipelineConstruct extends Construct {
     const blueprint = blueprints.EksBlueprint.builder()
     .account(account)
     .region(region)
-    .addOns()
+    .addOns(new blueprints.ClusterAutoScalerAddOn)
     .teams(new TeamPlatform(account), new TeamApplication('burnham',account));
   
     blueprints.CodePipelineStack.builder()
